@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'dollyusdtprogram.herokuapp.com',
-    'dollyusdtprogram.herokuapp.com',
+    'dollyusdtprogram.com',
     '127.0.0.1',
 
 ]
