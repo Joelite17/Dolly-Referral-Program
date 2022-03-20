@@ -1,0 +1,50 @@
+{% extends 'refer/base.html' %} 
+{%block title%}Login{%endblock title%}
+{%load crispy_forms_tags%} {%load static%}
+{%block dashboard%} 
+
+<head>
+  <style>
+    .login {
+      color: rgb(155, 48, 48);
+    }
+    </style>
+  </head>
+<div class="row container">
+  <div class="col-md-6">
+      <div class="card">
+          <div class="card-body">
+              <div> 
+                  <div>
+                  <h3><b>Log In</b><h3>
+                  <hr>
+                  </div>
+                  <form method="POST">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                      {{ form|crispy }}
+                    </fieldset>
+                    <div class="form-group">
+                      <button class="btn btn-outline-secondary" type="submit">Log In</button>
+                      <small class="text-muted ml-2">
+                        <!-- <a href="{% url 'password_reset' %}">Forgot Password?</a> -->
+                      </small>
+                    </div>
+                  </form>
+                  <div class="border-top pt-3">
+                    <small class="text-muted small">
+                      <p style="isolation: isolate">
+                        <strong>Need An Account? </strong
+                        ><a class="ml-2" href="{% url 'signup' %}">Sign Up</a>
+                      </p>
+                    </small>
+                  </div>
+              </div>
+              
+          </div>
+      </div>
+  </div>
+    <div class="col-md-6">
+    </div>
+</div>
+{%endblock dashboard%}

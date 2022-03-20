@@ -1,0 +1,42 @@
+body {
+  background-color: white;
+}
+i.fa-user-cog {
+  color: white;
+}
+.account-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  height: 200px;
+  object-fit: contain;
+  border-top: 10px solid white;
+  border-bottom: 10px solid white;
+}
+.img-div {
+  background-color: purple;
+  padding: 12px;
+  isolation: isolate;
+}
+.profile-info {
+  background-color: darkgrey;
+  padding: 12px;
+}
+.profile-update {
+  background-color: lightgrey;
+  padding: 12px;
+}
+.btn {
+  background-color: rgb(94, 8, 94);
+  border-radius: 0;
+  border: none;
+  color: white;
+  text-align: center;
+  isolation: isolate;
+}
+.btn:hover {
+  background-color: rgb(34, 6, 82);
+  color: white;
+  isolation: isolate;
+}

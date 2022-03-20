@@ -1,0 +1,46 @@
+{% extends 'refer/base.html' %} {%block title%}History{%endblock title%} {% load
+crispy_forms_tags %} {% load static %} {%block dashboard%}
+
+<head>
+  <style>
+    .history {
+      color: rgb(155, 48, 48);
+    }
+  </style>
+</head>
+<div class="container">
+  <table
+    class="table table-borderless table-striped table-dark table-hover table-responsive"
+  >
+    <h3>
+      <span>
+        <b>${{ user.profile.earn }}</b>
+      </span>
+      <span style="float: right">
+        Withdrawal History - {{ withdrawal_request.count }}
+      </span>
+    </h3>
+
+    <thead>
+      <tr>
+        <th scope="col">S/N</th>
+        <th scope="col">Date</th>
+        <th scope="col">Wallet Address</th>
+        <th scope="col">Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for request in withdrawal_request %}
+
+      <tr>
+        <th class="text-white">{{ forloop.revcounter }}</th>
+        <th scope="row" class="text-white">{{request.date|date:'Y/m/d'}}</th>
+        <th scope="row" class="text-white">{{ request.wallet_address }}</th>
+        <th scope="row" class="text-white">${{request.USDT_Amount}}</th>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{%endblock dashboard%}

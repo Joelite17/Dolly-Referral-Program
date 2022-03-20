@@ -1,0 +1,450 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>Dolly</title>
+    <meta content="" name=" Dolly is a legit USDT referral program that rewards  its members 3$ each for each confirmed 
+    activated referral account a user have." />
+    <meta content="" name="keywords" />
+
+    <!-- Favicons -->
+    <link href="{% static 'crypto/images/coverpics.jpg' %}" rel="icon" />
+    <!-- <link href="{% static 'crypto/images/joelite.jpg'%}" rel="icon" /> -->
+    <!-- <link href="{% static 'crypto/images/joelite3.jpg' %}" rel="icon" /> -->
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'crypto/vendor/aos/aos.css' %}" rel="stylesheet" />
+    <link
+      href="{% static 'crypto/vendor/bootstrap/css/bootstrap.min.css' %}"
+      rel="stylesheet"
+    />
+    <link
+      href="{% static 'crypto/vendor/bootstrap-icons/bootstrap-icons.css' %}"
+      rel="stylesheet"
+    />
+    <link
+      href="{% static 'crypto/vendor/boxicons/css/boxicons.min.css' %}"
+      rel="stylesheet"
+    />
+    <link
+      href="{% static 'crypto/vendor/glightbox/css/glightbox.min.css' %}"
+      rel="stylesheet"
+    />
+    <link
+      href="{% static 'crypto/vendor/remixicon/remixicon.css' %}"
+      rel="stylesheet"
+    />
+    <link
+      href="{% static 'crypto/vendor/swiper/swiper-bundle.min.css' %}"
+      rel="stylesheet"
+    />
+
+    <!-- Template Main CSS File -->
+    <link href="{% static 'crypto/styles/styles.css' %}" rel="stylesheet" />
+    <style>
+    #hero {
+      width: 100%;
+      height: 100vh;
+      background: url("{%static 'crypto/images/coverpics.jpg'  %}") top center no-repeat;
+      background-size: cover;
+      position: relative;
+      padding-top: 82px;
+    }
+    </style>
+  </head>
+
+  
+    
+  <body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+      <div class="container d-flex align-items-center">
+        <h1 class="logo me-auto">
+          <a href="index.html">DOLLY</a>
+        </h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt=""></a> -->
+
+        <nav id="navbar" class="navbar order-last order-lg-0">
+          <ul>
+            <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+            <li><a class="nav-link scrollto" href="#about">About us</a></li>
+            <li><a class="nav-link scrollto" href="#terms">Terms of service</a></li>
+            <li><a class="nav-link scrollto" href="#faq">FAQ</a></li>
+          {% if user.is_authenticated %}
+          <li><a class="nav-link scrollto" href="{% url 'dashboard' %}">Dashboard</a></li>
+
+            
+            {% endif %}
+          
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+         
+       
+        </nav>
+        {% if not user.is_authenticated %}
+            
+        <a href="{% url 'signup' %}" class="get-started-btn">Get Started</a>
+        <a href="{% url 'login' %}" class="btn btn-primary">Log In</a> 
+      {% endif %}
+        <!-- .navbar -->
+        
+
+
+
+      </div>
+    </header>
+    <!-- End Header -->
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center">
+      <div class="container" data-aos="zoom-out" data-aos-delay="100">
+        <div class="row">
+          <div class="col-xl-6">
+          {% if not user.is_authenticated %}
+            
+            <a href="{% url 'signup' %}" class="btn-get-started scrollto">Get Started</a>
+
+          {% endif %}
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Hero -->
+
+    <main id="main">
+      <!-- ======= About Section ======= -->
+      <section id="about" class="about section-bg">
+        <div class="container" data-aos="fade-up">
+          <div class="section-title container">
+            <h2>About Dolly</h2>
+            <p>
+              Dolly is a legit USDT referral program that rewards  its members 3$ each for each confirmed 
+              activated referral account a user have. 
+              Dolly aims at creating passive income for crypto trader and expert that join in its program. 
+              Are you excited?<br /><br />
+              <ul style="text-align: left;">
+              <li>Activation  of account costs 10$ which will be processed within 48 hours, after activation of account you will automatically gain 4$ in your referrals earnings</li>
+              <li>For every confirmed referral account that is activated you earn 3$ each </li>
+              <li>In order to gain activated referral the people you referred need to activate their account</li>
+              <li>Minimum withdrawal limit is 20$ after which you can send withdrawal request which will be confirmed within 72 hours</li>
+              <li>The reason for the delay in activation of account and withdrawal is because the transaction are done manually so as to prevent fraudulent and suspicious activity and to make sure that dolly member that join in the referral program are able to withdraw their earning</li>
+              <li>Transparency: All dolly member will be able to track his or her referrals and activated referral on my referral menu and be able to withdraw his or her funds earned and change his or her profile including his or her wallet address</li>  
+              </ul>
+            </p>
+          </div>
+        </div>
+            
+              <!-- End .content-->
+      </section>
+      <!-- End About Section -->
+
+      <!-- ======= Counts Section ======= -->
+      <section id="counts" class="counts">
+        <div class="container" data-aos="fade-up">
+          <div class="row">
+            
+            <div class="col-lg-3 col-md-6">
+              <div class="count-box">
+                <i class="bi bi-emoji-smile"></i>
+                <span
+                  data-purecounter-start="0"
+                  data-purecounter-end="100"
+                  data-purecounter-duration="1"
+                  class="purecounter"
+                ></span>
+                <p>Transparency</p>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
+              <div class="count-box">
+                <i class="bi bi-currency-dollar"></i>
+                <span
+                ></span>
+                <p><br><br><br><b>Unlimited Earning</b></p>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+              <div class="count-box">
+                <i class="bi bi-clock"></i>
+                <span
+                  data-purecounter-start="0"
+                  data-purecounter-end="247"
+                  data-purecounter-duration="1"
+                  class="purecounter"
+                ></span>
+                <p>Hours Of Support</p>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+              <div class="count-box">
+                <i class="bi bi-people"></i>
+                <span
+                  data-purecounter-start="0"
+                  data-purecounter-end="100"
+                  data-purecounter-duration="1"
+                  class="purecounter"
+                ></span>
+                <p>Reliability</p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Counts Section -->
+      <!-- ======= Terms Section ======= -->
+      <section id="terms" class="team section-bg">
+        <div class="container" data-aos="fade-up">
+          <div class="section-title">
+            <h2>TERMS OF SERVICE</h2>
+            <p>
+              The level of trust is significant, we have these terms and
+              condition for participation
+            </p>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+              <div class="member" data-aos="fade-up" data-aos-delay="100">
+                <div class="member-info">
+                  <h4>ACTIVATION OF ACCOUNT </h4>
+                  <p>
+                    To activate your account you have to sign in to your account 
+                    if you have created an account already,
+                     then click on the "Activate Account" button on the dashboard.
+                     Copy and make payment to the given USDT wallet Address
+                     and and fill in the USDT Address used to make payment. Then click "Submit" for account activation.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+              <div class="member" data-aos="fade-up" data-aos-delay="100">
+                <div class="member-info">
+                  <h4>UNLIMITED REFFERAL EARNINGS</h4>
+                  <p>
+                    DOLLY usdt refferal program rewards it members
+                    that participate to be able to earn unlimited USDT 
+                    as long as your referral activate their account.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+              <div class="member" data-aos="fade-up" data-aos-delay="100">
+                <div class="member-info">
+                  <h4>PERIOD OF WITHDRAWAL OF EARNINGS AND ACTIVATION OF ACCOUNT
+                  </h4>
+                  <p>
+                    Activation of account after making payment and sending your application takes 48
+                    hours and withdrawal of earning request after filing the form takes 72 hours.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+              <div class="member" data-aos="fade-up" data-aos-delay="100">
+                <div class="member-info">
+                  <h4>CUSTOMER SERVICES 
+                  </h4>
+                  <p>
+                    We have a customer service feature where members 
+                    can communicate to our customer service personnel in case of problem <br>
+                  
+                    <a href="Telegram group https://t.me/+1hl_25lL8u4yNGU0" target="_blank" class="text-Secondary">Telegram</a> 
+             
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+      </section>
+      <!-- End Team Section -->
+      <!-- ======= Frequently Asked Questions Section ======= -->
+      <section id="faq" class="faq">
+        <div class="container" data-aos="fade-up">
+          <div class="section-title">
+            <h2>Frequently Asked Questions</h2>
+          </div>
+
+          <ul class="faq-list accordion" data-aos="fade-up">
+            <li>
+              <a
+                data-bs-toggle="collapse"
+                data-bs-target="#faq6"
+                class="collapsed"
+                >What is USDTBEP20?
+                <i class="bx bx-chevron-down icon-show"></i
+                ><i class="bx bx-x icon-close"></i
+              ></a>
+              <div id="faq6" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  USDTBEP20 is a dollar digital currency used in crypto market
+                </p>
+              </div>
+            </li>
+            <li>
+              <a
+                data-bs-toggle="collapse"
+                class="collapsed"
+                data-bs-target="#faq1"
+                >Can we withdraw any amount of dollar I earn?
+                <i class="bx bx-chevron-down icon-show"></i
+                ><i class="bx bx-x icon-close"></i
+              ></a>
+              <div id="faq1" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  Yes, you can if you have earned that amount. However,Minimum withdrawal is $20.
+                </p>
+              </div>
+            </li>
+
+            <li>
+              <a
+                data-bs-toggle="collapse"
+                data-bs-target="#faq2"
+                class="collapsed"
+                >What dollar chain network is used?
+                 <i class="bx bx-chevron-down icon-show"></i
+                ><i class="bx bx-x icon-close"></i
+              ></a>
+              <div id="faq2" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  The network chain used is usdtbep20 usdt or binance smartchain
+                </p>
+              </div>
+            </li>
+
+            <li>
+              <a
+                data-bs-toggle="collapse"
+                data-bs-target="#faq3"
+                class="collapsed"
+                >Is this site legit? <i class="bx bx-chevron-down icon-show"></i
+                ><i class="bx bx-x icon-close"></i
+              ></a>
+              <div id="faq3" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  Yes, this site is legit it pays user who join in it referral program
+                </p>
+              </div>
+            </li>
+
+            <li>
+              <a
+                data-bs-toggle="collapse"
+                data-bs-target="#faq4"
+                class="collapsed"
+                >How can I get usdtbep20?
+                <i class="bx bx-chevron-down icon-show"></i
+                ><i class="bx bx-x icon-close"></i
+              ></a>
+              <div id="faq4" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  You can buy it on binance. Here is the link <a href="https://accounts.binance.com/en/register?ref=48073993" target="_blank">Binance</a>
+
+                </p>
+              </div>
+            </li>
+
+            <li>
+              <a
+                data-bs-toggle="collapse"
+                data-bs-target="#faq5"
+                class="collapsed"
+                >How can I get my referral link?<i class="bx bx-chevron-down icon-show"></i
+                ><i class="bx bx-x icon-close"></i
+              ></a>
+              <div id="faq5" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  You have to login to your account if you have one, 
+                  but if you have no account, you have to register and login, then activate your account 
+                </p>
+              </div>
+            </li>
+
+            <li>
+              <a
+                data-bs-toggle="collapse"
+                data-bs-target="#faq6"
+                class="collapsed"
+                >Who is this dollar earning program for?
+                <i class="bx bx-chevron-down icon-show"></i
+                ><i class="bx bx-x icon-close"></i
+              ></a>
+              <div id="faq6" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  It is for crypto traders and newbies in crypto who want to gain extra 
+                  passive income during the Bear Market and Bull Market
+                </p>
+              </div>
+            </li>
+
+            
+          </ul>
+        </div>
+      </section>
+      <!-- End Frequently Asked Questions Section -->
+
+
+    </main>
+    <!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+      <div class="footer-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3 col-md-6 footer-contact">
+              <h3>DOLLY</h3>
+              <p>
+                <strong>Telegram:</strong>
+                <a href="Telegram group https://t.me/+1hl_25lL8u4yNGU0" target="_blank" class="text-primary">DOLLYBEP20USDT </a> <br /><br />
+             
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+
+    </footer>
+    <!-- End Footer -->
+
+    <a
+      href="#"
+      class="back-to-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+
+    <!-- Vendor JS Files -->
+
+    
+    <script src="{% static 'crypto/vendor/purecounter/purecounter.js' %}"></script>
+    <script src="{% static 'crypto/vendor/aos/aos.js' %}"></script>
+    <script src="{% static 'crypto/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'crypto/vendor/glightbox/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'crypto/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'crypto/vendor/swiper/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'crypto/vendor/php-email-form/validate.js' %}"></script>
+
+    <!-- Template Main JS File -->
+    <script src="{% static 'crypto/js/main.js' %}"></script>
+  </body>
+</html>

@@ -1,0 +1,108 @@
+{% extends 'refer/base.html' %} 
+{%block title%}Settings{%endblock title%}
+{%load crispy_forms_tags%} {%load static%}
+{%block dashboard%} 
+
+<head>
+    <style>
+      .settings {
+        color: rgb(155, 48, 48);
+      }
+      </style>
+</head>
+<div class="row container">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <div>
+                    <div>
+                        <h3><b>My Profile</b><h3><hr>
+                    </div>
+                    <h5>
+                        Username:
+                        {{user.username }}
+                    </h5>
+                    <br >
+                    <h5>Email:
+                     {{ user.email }}
+                    </h5><br>
+                    <h5>First Name:
+                      {{ user.first_name }}
+                    </h5><br>
+                    <h5>Last Name: 
+                      {{ user.last_name }}
+                    </h5><br>
+                    <h5>Wallet Addresses:
+                     {{ user.walletprofile.wallet_address }}
+
+                    </h5><br>
+                    <br />
+                    {% if activate_account == True %}
+                    <h5>
+                        Referral Link:<br />
+                        <span id="content" style="color: white">
+                            <button
+                                type="button"
+                                class="btn btn-outline-info btn-sm"
+                            >
+                            http://127.0.0.1:8000/refer/{{profile.code}}
+                            </button>
+                        </span>
+                        <span>
+                            <button
+                                type="button"
+                                class="btn btn-outline-info btn-sm"
+                                id="copy"
+                            >
+                                <i class="fa fa-copy"></i>
+                            </button>
+                        </span>
+                        <script>
+                            // Reference of the paragraph tag
+                        const content = document.getElementById("content");
+        
+                        // Reference of the copy button
+                        const copyBtn = document.getElementById("copy");
+        
+                        // Copy button's onclick handler
+                        copyBtn.onclick = copyToClipboard;
+        
+                        // Method responsible for copying the content
+                        function copyToClipboard() {
+                            navigator.clipboard
+                                .writeText(content.innerText)
+                                .then(() => alert("Copied to clipboard"))
+                                .catch((e) => alert(e.message));
+                        }
+                            </script>
+                    </h5>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <div> 
+                    <div>
+                        <h3><b>Profile Update</b><h3>
+                            <hr>
+                    </div>
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <fieldset class="form-group">
+                          {{  u_form|crispy }}
+                          {{  p_form|crispy }}
+                        </fieldset>
+                        <div class="form-group">
+                            <button class="btn btn-outline-secondary" type="submit">Update</button>
+                        </div>
+                      </form>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock dashboard%}

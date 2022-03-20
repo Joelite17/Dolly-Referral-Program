@@ -1,0 +1,42 @@
+{% extends 'refer/base.html' %} {%block title%}My referrals{%endblock title%} {%
+load crispy_forms_tags %} {% load static %} {%block dashboard%}
+
+<head>
+  <style>
+    .referral {
+      color: rgb(155, 48, 48);
+    }
+  </style>
+</head>
+<div class="row container">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <div>
+          <div>
+            <h3>
+              <b>Total Referrals - {{ referral_counter}}</b>
+            </h3>
+            <small>Activated referrals - {{ my_recs_count }}</small>
+            <hr />
+          </div>
+          <div class="container">
+            <ul>
+              {% for x in my_activated_recs %}
+              <li>
+                {{ x.first_name }} {{ x.last_name }}
+                <i class="fa fa-check" style="color: green"></i>
+              </li>
+              <hr />
+              {% endfor %} {% for y in not_activated_recs %}
+              <li>{{ x.first_name }} {{ y.last_name }}</li>
+              <hr />
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock dashboard %}

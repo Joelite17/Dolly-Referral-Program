@@ -1,0 +1,33 @@
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 17px;
+}
+.shadow {
+  box-shadow: 0 4px 2px -2px white;
+}
+.joelite {
+  background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: none;
+  font-family: Algerian;
+}
+
+.masthead {
+  background: blue;
+  height: auto;
+  padding-bottom: 15px;
+  box-shadow: 0 16px 48px #E3E7EB;
+  padding-top: 10px;
+}
+
+.jt {
+  text-align: right;
+  color:white;
+  font-family: Algerian;
+
+}
+.jt:hover {
+  color:#4B0082;
+  text-decoration: none;
+}

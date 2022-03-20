@@ -1,0 +1,48 @@
+{% extends 'refer/base.html' %} 
+{%block title%} Sign up {%endblock title%}
+{%load crispy_forms_tags%} {%load static%}
+{%block dashboard%} 
+
+<head>
+  <style>
+    .signup {
+      color: rgb(155, 48, 48);
+    }
+    </style>
+</head>
+<div class="row container">
+  <div class="col-md-6">
+      <div class="card">
+          <div class="card-body">
+              <div> 
+                  <div>
+                  <h3><b>Sign Up</b><h3>
+                  <hr>
+                  </div>
+                  <form method="POST">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                      {{ form|crispy }}
+                      {{ p_form|crispy }}
+                    </fieldset>
+                    <div class="form-group">
+                      <button class="btn btn-outline-secondary" type="submit">Sign Up</button>
+                    </div>
+                  </form>
+                  <div class="border-top pt-3">
+                    <small class="text-muted small">
+                      <p style="isolation: isolate">
+                        <strong>Already Have An Account? </strong
+                        ><a class="ml-2" href="{% url 'login' %}">Log In</a>
+                      </p>
+                    </small>
+                  </div>
+              </div>
+              
+          </div>
+      </div>
+  </div>
+    <div class="col-md-6">
+    </div>
+</div>
+{%endblock dashboard%}

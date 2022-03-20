@@ -1,0 +1,268 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            
+        <!-- Favicons -->
+        <link href="{% static 'crypto/images/joelite.jpg'%}" rel="icon" />
+        <link href="{% static 'crypto/images/coverpics.jpg' %}" rel="icon" />
+        <title>Dolly | {% block title %}{% endblock title %}</title>
+        <meta name="description" content="Dolly referral program" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        <!-- <link rel="apple-touch-icon" href="apple-icon.png" />
+        <link rel="shortcut icon" href="favicon.ico" /> -->
+        <!-- icon -->
+        <!-- css boostrap -->
+        <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" 
+                                    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+        <!-- Boostrap Js -->
+        <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+        <link
+            rel="stylesheet"
+            href="{% static 'refer/vendors/bootstrap/dist/css/bootstrap.min.css' %}"/>
+        <link
+            rel="stylesheet"
+            href="{% static 'refer/vendors/font-awesome/css/font-awesome.min.css' %}"
+        />
+        <link
+            rel="stylesheet"
+            href="{% static 'refer/vendors/themify-icons/css/themify-icons.css' %}"
+        />
+        <link
+            rel="stylesheet"
+            href="{% static 'refer/vendors/bootstrap/dist/css/bootstrap.min.css' %}"
+        />
+        <link
+            rel="stylesheet"
+            href="{% static 'refer/vendors/selectFX/css/cs-skin-elastic.css' %}"
+        />
+        <link rel="stylesheet" href="{% static 'refer/vendors/jqvmap/dist/jqvmap.min.css' %}" />
+
+        <link rel="stylesheet" href="{% static 'refer/css/style.css' %}" />
+
+        <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800"
+            rel="stylesheet"
+            type="text/css"
+        />
+    </head>
+
+    <body>
+        
+        <!-- Left Panel -->
+
+        <aside id="left-panel" class="left-panel">
+            <nav class="navbar navbar-expand-sm navbar-default">
+                <div class="navbar-header">
+                    <button
+                        class="navbar-toggler"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#main-menu"
+                        aria-controls="main-menu"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                    >
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <!-- <h3 style="color: white"  class="hidden">JOSIAH</h3> -->
+                {% if user.is_authenticated %}
+
+                    <a class="navbar-brand" href="./"
+                        >{{ user.username }}</a>
+                    <a class="navbar-brand hidden" href="./"
+                        >{{ user.username|slice:":1" }}</a>
+                {% else %}
+                <a class="navbar-brand" href="./">DOLLY</a>
+                <a class="navbar-brand hidden" href="./"
+                    >D</a>
+
+                {% endif %}
+                </div>
+                {% if user.is_authenticated %}
+
+                <div id="main-menu" class="main-menu collapse navbar-collapse">
+
+                    <ul class="nav navbar-nav">
+                        
+                        
+                        {% if sent_activation_request == False %}
+                        <li class="active">
+                            <a href="{% url 'account_activation' %}">
+                                <i class="menu-icon	fa fa-unlock"></i>
+                                <div class="account_activation">
+                                Account Activation
+                                </div>
+                            </a>
+                        
+                        </li>
+                        {% endif %}
+                        <li class="active">
+                            <a href="{% url 'dashboard' %}">
+                                <i class="fa fa-dashboard menu-icon"></i
+                                >
+                                <div class="dashboard">
+                                    Dashboard
+                               </div>
+                            </a>
+                            
+                        </li>
+
+
+                        <li class="active">
+                            <a href="{% url 'profile' %}">
+                                <i class="menu-icon fa fa-user"></i> 
+                                <div class="profile">
+                                My Profile
+                                </div>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="{% url 'myreferrals' %}">
+                                <i class="menu-icon fa fa-users"></i>
+                                <div class="referral">
+                                My Referrals
+                                </div>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="{% url 'withdrawal_history' %}">
+                                <i class="menu-icon fa fa-history"></i>
+                                <div class="history">
+                                Withdrawal History
+                                </div>
+                            </a>
+                        </li>
+                       
+                        <li class="active">
+                            <a href="{% url 'settings' %}">
+                                <i class="menu-icon fa fa-cog"></i>
+                                <div class="settings">
+
+                                Settings
+                                </div>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="{% url 'logout' %}">
+                                <i class="menu-icon fa fa-power-off"></i>
+                                
+                                Logout
+                            
+                            </a>
+                        </li>
+                    </ul>
+                    
+                </div>
+                {% else %}
+                <div id="main-menu" class="main-menu collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="{% url 'signup' %}">
+                                <i class="menu-icon  fa fa-user-plus"></i
+                                >
+                                
+                                <div class="signup">
+                                    Sign Up
+                                </div>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="{% url 'login' %}">
+                                <i class="menu-icon fa fa-user"></i>
+                                
+                                <div class="login">
+                                Log In
+                                
+                                </div>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="{% url 'homepage' %}">
+                                <i class="menu-icon fa fa-home"></i>
+                                
+                                Return to Homepage
+                            
+                            </a>
+                        </li>
+                    </ul>
+                    
+                </div>
+                {% endif %}
+                <!-- /.navbar-collapse -->
+            </nav>
+        </aside>
+        <!-- /#left-panel -->
+
+        <!-- Left Panel -->
+
+        <!-- Right Panel -->
+
+        <div id="right-panel" class="right-panel">
+             <!-- Header-->
+            <header id="header" class="header">
+                <div class="header-menu">
+                    <div class="col-sm-7">
+                        <a id="menuToggle" class="menutoggle pull-left"
+                            ><i class="fa fa fa-tasks"></i
+                        ></a>
+                    </div>
+
+                   
+
+                        
+                            
+                </div>
+            </header>
+            
+            <div class="container-fluids message">
+                <!-- Message after user input -->
+                {% if messages %} {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                {% endfor %} {% endif %}
+            </div>
+            <!-- /header -->
+
+            
+        
+
+        <script src="{% static 'refer/vendors/jquery/dist/jquery.min.js' %}"></script>
+        <script src="{% static 'refer/vendors/popper.js/dist/umd/popper.min.js' %}"></script>
+        <script src="{% static 'refer/vendors/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'refer/js/main.js' %}"></script>
+
+        <script src="{% static 'refer/vendors/chart.js/dist/Chart.bundle.min.js' %}"></script>
+        <script src="{% static 'refer/js/dashboard.js' %}"></script>
+        <script src="{% static 'refer/js/widgets.js' %}assets/js/widgets.js"></script>
+        <script src="{% static 'refer/vendors/jqvmap/dist/jquery.vmap.min.js' %}"></script>
+        <script src="{% static 'refer/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js' %}"></script>
+        <script src="{% static 'refer/vendors/jqvmap/dist/maps/jquery.vmap.world.js' %}"></script>
+        <script>
+            (function ($) {
+                "use strict";
+
+                jQuery("#vmap").vectorMap({
+                    map: "world_en",
+                    backgroundColor: null,
+                    color: "#ffffff",
+                    hoverOpacity: 0.7,
+                    selectedColor: "#1de9b6",
+                    enableZoom: true,
+                    showTooltip: true,
+                    values: sample_data,
+                    scaleColors: ["#1de9b6", "#03a9f5"],
+                    normalizeFunction: "polynomial",
+                });
+            })(jQuery);
+        </script>
+        {% block dashboard %}
+        <!-- Content Goes here -->
+        {% endblock dashboard %}
+    </body>
+</html>
