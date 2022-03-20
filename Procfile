@@ -1,1 +1,1 @@
-web: gunicorn Dan_crypto.wsgi --log-file -
+web: gunicorn Dan_crypto.wsgi 

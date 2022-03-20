@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import os
 import django_heroku
 from pathlib import Path
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,6 +22,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+# SECRET_KEY = "django-insecure-is)wf@ktx+bmbogau$!akeoim1prj(sxn%32bd_ovv61y&gkdr"
+
 SECRET_KEY = os.path.join(BASE_DIR, 'SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -51,6 +54,7 @@ INSTALLED_APPS = [
 
 
     'crispy_forms',
+    # "whitenoise.runserver_nostatic",
 ]
 
 MIDDLEWARE = [
@@ -167,3 +171,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Heroku database
 django_heroku.settings(locals(), staticfiles=False)
+
+# psgoco2 database
+# db_from_env = dj_database_url.config(conn_max_age=600)
+# DATABASES['default'].update(db_from_env)
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
