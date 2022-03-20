@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.path.join(BASE_DIR, 'SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = (os.path.join(BASE_DIR, "DEBUG_VALUE") == "True")
 
 ALLOWED_HOSTS = [
     'dollyusdtprogram.herokuapp.com',
